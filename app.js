@@ -29,14 +29,14 @@ calculateProfitLoss = (initial, quantity, current) => {
     
         if(initial > current){
             change = (initial-current)*quantity;
-            changePercent = (change/initial)*100;
+            changePercent = ((current-initial)/initial)*100;
             net = 'loss';
 
             showOutput('Hey, The ' + net + ' is ' + change + ' and the percent is ' + changePercent + ' %.');
         }
         else if(initial < current){
             change = (current-initial)*quantity;
-            changePercent = (change/initial)*100;
+            changePercent = ((current-initial)/initial)*100;
             net = 'profit';
             showOutput('Hey, The ' + net + ' is ' + change + ' and the percent is ' + changePercent + ' %.');
         }
