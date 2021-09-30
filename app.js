@@ -52,7 +52,17 @@ function showOutput(message){
     outputArea.innerText = message;
 }
 
-    checkButton.addEventListener("click", submitHandler);
+    checkButton.addEventListener("click", () => {
+        if(Number(initialPrice.value) === 0 || Number(quantityOfStocks.value) === 0 || Number(currentPrice.value) === 0){
+            showOutput('Please do not leave any field blank');
+        }
+        // else if(Number(initialPrice.value) < 0 || Number(quantityOfStocks.value) < 0 || Number(currentPrice.value) < 0){
+
+        // }
+        else{
+            submitHandler();
+        }
+    });
 // calculateProfitLoss = (initial, quantity, current) => {
     
 //     let net;
