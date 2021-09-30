@@ -7,11 +7,18 @@ const outputArea = document.querySelector("#output-text");
 
 
 submitHandler = () => {
-        const initial = Number(initialPrice.value);
-        const quantity = Number(quantityOfStocks.value);
-        const current = Number(currentPrice.value);
-    
-        calculateProfitLoss(initial, quantity, current);
+
+        if(Number(initialPrice.value)>=0 && Number(quantityOfStocks.value)>0 && Number(currentPrice.value)>=0){
+            const initial = Number(initialPrice.value);
+            const quantity = Number(quantityOfStocks.value);
+            const current = Number(currentPrice.value);
+        
+            calculateProfitLoss(initial, quantity, current);
+        }
+        else{
+            showOutput('Please enter valid input.');
+        }
+        
 };
 
 calculateProfitLoss = (initial, quantity, current) => {
@@ -41,9 +48,9 @@ calculateProfitLoss = (initial, quantity, current) => {
         }
     };
 
-    function showOutput(message){
-        outputArea.innerText = message;
-    }
+function showOutput(message){
+    outputArea.innerText = message;
+}
 
     checkButton.addEventListener("click", submitHandler);
 // calculateProfitLoss = (initial, quantity, current) => {
